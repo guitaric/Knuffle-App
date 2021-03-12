@@ -1,0 +1,53 @@
+
+.rowsContainer {
+    display: flex;
+    flex-direction: row;
+
+}
+
+ul {
+    width: 50%;
+}
+
+
+li {
+    /* background-color: rgb(224, 224, 146); */
+    border: solid 2px var(--blue) ;
+    padding: 20px 10px ;
+    font-size: 20px;
+
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+li.buttonrow {
+    box-sizing: border-box;
+    height: 140px;
+}
+
+
+li.row > div:nth-child(1) {
+    flex: 3;
+}
+li.row > div:nth-child(2) {
+    flex: 7;
+}
+li.row > div:nth-child(3) {
+    flex: 1;
+}
+
+button {
+    font-size: 16px;
+    width: 200px;
+    height: 50px;
+    background-color: var(--blue);
+    border-radius: 50px;
+}
+
+.dices {
+    width: 50px;
+    height: 50px;  
+    margin: 20px;
+    background-color:blanchedalmond;
+}
