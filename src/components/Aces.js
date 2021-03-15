@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const Aces = () =>  {
+const Aces = ({ dices, countOnes, setCountOnes }) =>  {
+
+
+useEffect(() => {
+    let numbers = dices.map(item => item.number)
+    let ones = numbers.reduce((acc, elem) => (elem === 1 ? acc + 1 : acc), 0);
+    setCountOnes(ones)
+}, [dices]) 
 
     return (
         <li className='row'>
             <div>Aces</div>
             <div>Count and add only Aces</div>
-            <div>34</div>
+            <div> { countOnes }</div>
         </li>
     )
 }

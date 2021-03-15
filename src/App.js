@@ -1,6 +1,8 @@
 import './App.css';
 import Rows from './components/Rows';
 import './components/Rows.css';
+import './components/Interaction.css';
+
 
 
 function App() {

@@ -1,73 +1,80 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 
 const Interaction = ({
-    rollsCount, setRollsCount, 
-    // Numbers, 
-    // setNewNumbers
-    Dice1, setDice1,
-    Dice2,  setDice2,
-    Dice3, setDice3,
-    Dice4, setDice4,
-    Dice5, setDice5
+    numberRolls, setNumberRolls, 
+    dices, setDices
 
 }) =>  {
 
-    // const [Dice1check, setDice1check] = useState(false);
-    // const [Dice2check, setDice2check] = useState(false);
-    // const [Dice3check, setDice3check] = useState(false);
-    // const [Dice4check, setDice4check] = useState(false);
-    // const [Dice5check, setDice5check] = useState(false);
-    const [DiceCheck, setDiceCheck] = useState([]);
+    const rollDices =  () => {
+        if(numberRolls === 3) {
+            setNumberRolls(numberRolls - 1);
 
-function checking(e) {
-    if(DiceCheck.length) {
-        let classes = e.target.className;
-        if(classes.includes('firstdice')) ;
+            const result = [];
+            for(let i = 0; i < 5; i++) {
+              result.push({
+                id: i, 
+                number: Math.floor(Math.random()*6)+1, 
+                selected: false
+              });
+            }              
+            setDices(result);
+        }
+        else if(numberRolls > 0) {
+            setNumberRolls(numberRolls - 1);
+            let temp = [...dices]
+            temp.filter(item => item.selected === false)
+                .forEach(item => item.number = Math.floor(Math.random()*6)+1)
+           
+            setDices(temp);
+        }
     }
-    console.log(DiceCheck)
-}
 
+    const freezeDice = (e) => {
+        let divIndex;
+        switch (e.target.id) {
+            case 'firstDice': divIndex = 0; break;
+            case 'secondDice' : divIndex = 1; break; 
+            case 'thirdDice' : divIndex = 2; break; 
+            case 'fourthDice' : divIndex = 3; break; 
+            case 'fifthDice' : divIndex = 4; break; 
+            default: divIndex = -1; 
+        }
 
- function roll() {
-    if(rollsCount>0){
-        setRollsCount( rollsCount -1 )
-        setDiceCheck([false, true, false, false, false])
+        if(e.target.style.backgroundColor === 'black'){
+            e.target.style.backgroundColor = '';
+            let temp = [...dices]
+            temp[divIndex].selected = false;
+            setDices(temp);
 
-        if(DiceCheck[0] === false) setDice1(Math.floor(Math.random()*6)+1);
-        if(DiceCheck[1] === false) setDice2(Math.floor(Math.random()*6)+1);
-        if(DiceCheck[2] === false) setDice3(Math.floor(Math.random()*6)+1);
-        if(DiceCheck[3] === false) setDice4(Math.floor(Math.random()*6)+1);
-        if(DiceCheck[4] === false) setDice5(Math.floor(Math.random()*6)+1);
+        } else {
+            e.target.style.backgroundColor = 'black';
+            let temp = [...dices]
+            temp[divIndex].selected = true;
+            setDices(temp);
+        }
     }
- }
 
 
-// function freezeDice(e){
-//     let classes = e.target.className;
-//     if(classes.includes('firstDice')) {
-//         setDice1check(!Dice1check)
-//     } else if(classes.includes('secondDice')) {
-//         setDice2check(!Dice2check)
-//     } else if(classes.includes('thirdDice')) {
-//         setDice2check(!Dice3check)
-//     } else if(classes.includes('fourthDice')) {
-//         setDice2check(!Dice4check)
-//     } else if(classes.includes('fifthDice')) {
-//         setDice2check(!Dice5check)
-//     }
-// }
+    let diceVar;
+    if(numberRolls < 3) {
+        diceVar = 
+        <div className='diceDivs'>
+            <div id='firstDice' onClick={ freezeDice }>{dices[0].number}</div>
+            <div id='secondDice' onClick={ freezeDice }>{dices[1].number}</div>
+            <div id='thirdDice' onClick={ freezeDice }>{dices[2].number}</div>
+            <div id='fourthDice' onClick={ freezeDice }>{dices[3].number}</div>
+            <div id='fifthDice' onClick={ freezeDice }>{dices[4].number}</div>
+        </div>
+    }
+
+
 
     return (
         <li className='buttonrow'>
-            <button onClick={ roll }>Roll the Dice! {rollsCount} Left</button>
-
-            <div className='dices firstDice' onClick={ checking }>{Dice1}</div>
-            <div className='dices secondDice' onClick={ checking }>{Dice2}</div>
-            <div className='dices thirdDice' onClick={ checking }>{Dice3}</div>
-            <div className='dices fourthDice' onClick={ checking }>{Dice4}</div>
-            <div className='dices fifthDice' onClick={ checking }>{Dice5}</div> 
-            <div>{DiceCheck[3]}</div>      
+            <button onClick={ rollDices }>{numberRolls} left</button>
+            <div>{diceVar}</div>
         </li>
     )
 }

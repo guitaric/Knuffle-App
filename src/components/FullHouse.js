@@ -4,7 +4,7 @@ const FullHouse = () =>  {
 
     return (
         <li className='row'>
-            <div>Aces</div>
+            <div>Full House</div>
             <div>Score 25</div>
             <div>34</div>
         </li>
