@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
-const Knuffle = ({ dices,
-                   countOnes, countTwos, 
-                   countThrees, countFours, 
-                   countFives, countSixes
+const Knuffle = ({ dice, data, freezeRow,
+                   knuffle, setKnuffle
 }) =>  {
 
-const [knuffle, setKnuffle] = useState(0);
 
 useEffect(() => {
-    let numbers = dices.map(item => item.number)
-    let hit = numbers.every(item => item === numbers[0])
-    if(hit) setKnuffle(50)
+    let numbers = dice.map(item => item.number)
+    if(numbers.length){
+        let hit = numbers.every(item => item === numbers[0])
+        if(hit) setKnuffle(50)
+    }
     else setKnuffle(0)
-}, [countOnes, countTwos, countThrees, countFours, countFives, countSixes])
+}, [])
 
 
     return (
         <li className='row'>
             <div>Knuffle</div>
             <div>Score 50</div>
-            <div>{ knuffle }</div>
+            <div id='Knuffle' className={ data[11].checked } onClick={freezeRow}>{ knuffle }</div>
         </li>
     )
 }

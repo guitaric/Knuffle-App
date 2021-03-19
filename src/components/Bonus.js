@@ -1,10 +1,11 @@
 import React, { useEffect} from 'react';
 
-const Bonus = ({ bonus, setBonus, countLeft }) =>  {
+const Bonus = ({ bonus, setBonus, countLeft, playSignal }) =>  {
 
     useEffect(() => {
+        console.log(countLeft)
         if(countLeft >= 63) setBonus(35);
-    }, [countLeft])
+    }, [playSignal])
 
     return (
         <li className='row'>

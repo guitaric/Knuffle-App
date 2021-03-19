@@ -11,7 +11,6 @@ ul {
 
 
 li {
-    /* background-color: rgb(224, 224, 146); */
     border: solid 2px var(--blue) ;
     padding: 20px 10px ;
     font-size: 20px;
@@ -39,15 +38,24 @@ li.row > div:nth-child(3) {
 
 button {
     font-size: 16px;
-    width: 200px;
+    margin-right: 20px;
+    width: 100px;
     height: 50px;
     background-color: var(--blue);
     border-radius: 50px;
 }
 
-.dices {
+.dice {
     width: 50px;
     height: 50px;  
     margin: 20px;
     background-color:blanchedalmond;
+}
+
+.checked {
+    background-color: yellow;
+}
+
+.frozen {
+    background-color: black;
 }

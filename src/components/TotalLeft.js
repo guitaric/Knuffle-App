@@ -1,24 +1,21 @@
 import React, {useEffect} from 'react';
 
-const TotalLeft = ({ 
-    countLeft, setCountLeft,
-    countOnes, countTwos, 
-    countThrees, countFours, 
-    countFives, countSixes
-}) =>  {
+const TotalLeft = ({ data, playSignal, countLeft, setCountLeft }) =>  {
 
+    let sum = 0
     useEffect(() => {
-        let sum = countOnes + countTwos + countThrees + 
-                  countFours + countFives + countSixes
+        let dataVar = [...data]
+        for(let i=0; i<6; i++){
+            sum += dataVar[i].value
+        }
         setCountLeft(sum)
-    }, [countOnes, countTwos, countThrees, countFours, countFives ,countSixes])
-    //condition ändern wann gerendert wird
+    }, [playSignal])
 
 
     return (
         <li className='row'>
             <div>Total Left</div>
-            <div>-----------------------------------------------></div>
+            <div>----------------------------------></div>
             <div>{ countLeft }</div>
         </li>
     )

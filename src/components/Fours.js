@@ -1,19 +1,24 @@
-import React, { useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 
-const Fours = ({ dices, countFours, setCountFours }) =>  {
+const Fours = ({ data, freezeRow }) =>  {
+    
+    const [blockFours, setBlockFours] = useState('');
 
     useEffect(() => {
-        let numbers = dices.map(item => item.number)
-        let fours = numbers.reduce((acc, elem) => (elem === 4 ? acc + 4 : acc), 0);
-        setCountFours(fours)
-    }, [dices])
+        if(data[3].checked == 'checked' && data[3].frozen !== 'frozen') {
+            setBlockFours('checked');
+        } else if(data[3].frozen == 'frozen') {
+            setBlockFours('frozen');
+        } else if(data[0].checked !== 'checked') {
+            setBlockFours('');
+        }
+    }, [data])
 
-    
     return (
         <li className='row'>
             <div>Fours</div>
             <div>Count and add only Fours</div>
-            <div>{ countFours }</div>
+            <div id='Fours' className={ blockFours } onClick={freezeRow}> { data[3].value }</div>
         </li>
     )
 }

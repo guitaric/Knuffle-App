@@ -3,11 +3,12 @@ import React from 'react';
 
 const Interaction = ({
     numberRolls, setNumberRolls, 
-    dices, setDices
+    dice, setDice,
+    play
 
 }) =>  {
 
-    const rollDices =  () => {
+    const rollDice =  () => {
         if(numberRolls === 3) {
             setNumberRolls(numberRolls - 1);
 
@@ -19,15 +20,15 @@ const Interaction = ({
                 selected: false
               });
             }              
-            setDices(result);
+            setDice(result);
         }
         else if(numberRolls > 0) {
             setNumberRolls(numberRolls - 1);
-            let temp = [...dices]
+            let temp = [...dice]
             temp.filter(item => item.selected === false)
                 .forEach(item => item.number = Math.floor(Math.random()*6)+1)
            
-            setDices(temp);
+            setDice(temp);
         }
     }
 
@@ -44,28 +45,30 @@ const Interaction = ({
 
         if(e.target.style.backgroundColor === 'black'){
             e.target.style.backgroundColor = '';
-            let temp = [...dices]
+            let temp = [...dice]
             temp[divIndex].selected = false;
-            setDices(temp);
+            setDice(temp);
 
         } else {
             e.target.style.backgroundColor = 'black';
-            let temp = [...dices]
+            let temp = [...dice]
             temp[divIndex].selected = true;
-            setDices(temp);
+            setDice(temp);
         }
     }
+
+
 
 
     let diceVar;
     if(numberRolls < 3) {
         diceVar = 
         <div className='diceDivs'>
-            <div id='firstDice' onClick={ freezeDice }>{dices[0].number}</div>
-            <div id='secondDice' onClick={ freezeDice }>{dices[1].number}</div>
-            <div id='thirdDice' onClick={ freezeDice }>{dices[2].number}</div>
-            <div id='fourthDice' onClick={ freezeDice }>{dices[3].number}</div>
-            <div id='fifthDice' onClick={ freezeDice }>{dices[4].number}</div>
+            <div id='firstDice' onClick={ freezeDice }>{dice[0].number}</div>
+            <div id='secondDice' onClick={ freezeDice }>{dice[1].number}</div>
+            <div id='thirdDice' onClick={ freezeDice }>{dice[2].number}</div>
+            <div id='fourthDice' onClick={ freezeDice }>{dice[3].number}</div>
+            <div id='fifthDice' onClick={ freezeDice }>{dice[4].number}</div>
         </div>
     }
 
@@ -73,7 +76,9 @@ const Interaction = ({
 
     return (
         <li className='buttonrow'>
-            <button onClick={ rollDices }>{numberRolls} left</button>
+            <button onClick={ rollDice }>{numberRolls} left</button>
+            <button onClick={ play }> Play </button>
+            <br/>
             <div>{diceVar}</div>
         </li>
     )

@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
-const Chance = ({ dices }) =>  {
+const Chance = ({ data, dice, freezeRow }) =>  {
 
     const [chanceSum, setChanceSum] = useState(0);
 
     useEffect(() => {
-        let numbers = dices.map(item => item.number)
+        let numbers = dice.map(item => item.number)
         let sum = numbers.reduce((acc, elem) => acc += elem, 0);
         setChanceSum(sum)
     }) 
@@ -13,8 +13,8 @@ const Chance = ({ dices }) =>  {
     return (
         <li className='row'>
             <div>Chance</div>
-            <div>Total Score of all Dices</div>
-            <div>{chanceSum}</div>
+            <div>Total Score of all Dice</div>
+            <div id='Chance' className={ data[12].checked } onClick={freezeRow}>{chanceSum}</div>
         </li>
     )
 }

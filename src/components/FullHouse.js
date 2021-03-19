@@ -1,12 +1,12 @@
 import React from 'react';
 
-const FullHouse = () =>  {
+const FullHouse = ({data, freezeRow}) =>  {
 
     return (
         <li className='row'>
             <div>Full House</div>
             <div>Score 25</div>
-            <div>34</div>
+            <div id='FullHouse' className={ data[8].checked } onClick={freezeRow}> 34</div>
         </li>
     )
 }

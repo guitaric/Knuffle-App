@@ -1,19 +1,26 @@
-import React, { useEffect } from 'react';
-
-const Aces = ({ dices, countOnes, setCountOnes }) =>  {
+import React, {useState, useEffect} from 'react';
 
 
-useEffect(() => {
-    let numbers = dices.map(item => item.number)
-    let ones = numbers.reduce((acc, elem) => (elem === 1 ? acc + 1 : acc), 0);
-    setCountOnes(ones)
-}, [dices]) 
+const Aces = ({ data, freezeRow }) =>  {
+
+    const [blockAces, setBlockAces] = useState('');
+
+    useEffect(() => {
+        if(data[0].checked == 'checked' && data[0].frozen !== 'frozen') {
+            setBlockAces('checked');
+        } else if(data[0].frozen == 'frozen') {
+            setBlockAces('frozen');
+        } else if(data[0].checked !== 'checked') {
+            setBlockAces('');
+        }
+    }, [data])
+
 
     return (
         <li className='row'>
             <div>Aces</div>
             <div>Count and add only Aces</div>
-            <div> { countOnes }</div>
+            <div id='Aces' className={ blockAces } onClick={freezeRow}> { data[0].value }</div>
         </li>
     )
 }
