@@ -1,4 +1,5 @@
 {
+  "homepage": "http://guitaric.github.io/Knuffle",
   "name": "knuffel",
   "version": "0.1.0",
   "private": true,
@@ -6,13 +7,17 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
+    "classnames": "^2.2.6",
+    "cross-env": "^7.0.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "cross-env BROWSER=chrome react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -37,5 +42,8 @@
   },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }
