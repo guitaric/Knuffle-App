@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Knuffle-App/static/css/main.5866dd4a.chunk.css",
-    "main.js": "/Knuffle-App/static/js/main.1c7dd612.chunk.js",
-    "main.js.map": "/Knuffle-App/static/js/main.1c7dd612.chunk.js.map",
+    "main.css": "/Knuffle-App/static/css/main.b36c7553.chunk.css",
+    "main.js": "/Knuffle-App/static/js/main.078f46ac.chunk.js",
+    "main.js.map": "/Knuffle-App/static/js/main.078f46ac.chunk.js.map",
     "runtime-main.js": "/Knuffle-App/static/js/runtime-main.58f79ffc.js",
     "runtime-main.js.map": "/Knuffle-App/static/js/runtime-main.58f79ffc.js.map",
     "static/js/2.2def5feb.chunk.js": "/Knuffle-App/static/js/2.2def5feb.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.5c0c9b40.chunk.js": "/Knuffle-App/static/js/3.5c0c9b40.chunk.js",
     "static/js/3.5c0c9b40.chunk.js.map": "/Knuffle-App/static/js/3.5c0c9b40.chunk.js.map",
     "index.html": "/Knuffle-App/index.html",
-    "static/css/main.5866dd4a.chunk.css.map": "/Knuffle-App/static/css/main.5866dd4a.chunk.css.map",
+    "static/css/main.b36c7553.chunk.css.map": "/Knuffle-App/static/css/main.b36c7553.chunk.css.map",
     "static/js/2.2def5feb.chunk.js.LICENSE.txt": "/Knuffle-App/static/js/2.2def5feb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.58f79ffc.js",
     "static/js/2.2def5feb.chunk.js",
-    "static/css/main.5866dd4a.chunk.css",
-    "static/js/main.1c7dd612.chunk.js"
+    "static/css/main.b36c7553.chunk.css",
+    "static/js/main.078f46ac.chunk.js"
   ]
 }
