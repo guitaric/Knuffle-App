@@ -4,7 +4,8 @@ import React from 'react';
 const Interaction = ({
     numberRolls, setNumberRolls, 
     dice, setDice,
-    play
+    play, setMessage,
+    data
 
 }) =>  {
 
@@ -29,6 +30,10 @@ const Interaction = ({
                 .forEach(item => item.number = Math.floor(Math.random()*6)+1)
            
             setDice(temp);
+            setMessage("Click on the dice to keep them")
+
+        } else if (numberRolls === 0) {
+            setMessage("Log in one row to transfer the points")
         }
     }
 
@@ -57,9 +62,6 @@ const Interaction = ({
         }
     }
 
-
-
-
     let diceVar;
     if(numberRolls < 3) {
         diceVar = 
@@ -73,11 +75,12 @@ const Interaction = ({
     }
 
 
-
     return (
         <li className='buttonrow'>
             <button onClick={ rollDice }>{numberRolls} left</button>
-            <button onClick={ play }> Play </button>
+            <button className=
+                        { `${data.some(item => item.frozen === false && item.checked === true) ? '' : 'grey' }` } 
+                    onClick={ play }> Play </button>
             <br/>
             <div>{diceVar}</div>
         </li>

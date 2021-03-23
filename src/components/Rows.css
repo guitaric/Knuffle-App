@@ -22,7 +22,7 @@ li {
 
 li.buttonrow {
     box-sizing: border-box;
-    height: 140px;
+    height: 142px;
 }
 
 
@@ -43,6 +43,10 @@ button {
     height: 50px;
     background-color: var(--blue);
     border-radius: 50px;
+}
+
+button.grey {
+    background-color: grey;
 }
 
 .dice {

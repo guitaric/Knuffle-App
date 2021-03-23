@@ -1,12 +1,14 @@
 import React from 'react';
 
-const OverallScore = () =>  {
+const OverallScore = ({totalScore}) =>  {
 
     return (
         <li className='row'>
             <div>Overall Score</div>
             <div></div>
-            <div>34</div>
+            <div id='OverallScore' >
+                 { totalScore }
+            </div>
         </li>
     )
 }

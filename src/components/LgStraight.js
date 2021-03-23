@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 
 const LgStraight = ({ data, setData, dice, freezeRow }) =>  {
+
+
 
     useEffect(() => {
         let dataVar = [...data]
@@ -11,9 +13,8 @@ const LgStraight = ({ data, setData, dice, freezeRow }) =>  {
             }
         }
 
-        if((numbers.includes(1) && numbers.includes(2) && numbers.includes(3) && numbers.includes(4)) ||
-           (numbers.includes(2) && numbers.includes(3) && numbers.includes(4) && numbers.includes(5)) || 
-           (numbers.includes(3) && numbers.includes(4) && numbers.includes(5) && numbers.includes(6))) {
+        if((numbers.includes(1) && numbers.includes(2) && numbers.includes(3) && numbers.includes(4)) && numbers.includes(5) ||
+           (numbers.includes(2) && numbers.includes(3) && numbers.includes(4) && numbers.includes(5)) && numbers.includes(6) ) {
                 dataVar[10].value = 40;
            } 
            setData(dataVar)
@@ -24,7 +25,12 @@ const LgStraight = ({ data, setData, dice, freezeRow }) =>  {
         <li className='row'>
             <div>Large Straight</div>
             <div>Score 40</div>
-            <div id='LgStraight' className={ data[10].checked } onClick={freezeRow}>{ data[10].value }</div>
+            <div id='LgStraight' 
+                 className={ `${data[10].frozen ? "frozen" : data[10].checked ? "checked" : ""}` } 
+                 onClick={freezeRow}>
+
+                 { data[10].value }
+            </div>
         </li>
     )
 }

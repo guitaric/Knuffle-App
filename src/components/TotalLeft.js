@@ -1,16 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
-const TotalLeft = ({ data, playSignal, countLeft, setCountLeft }) =>  {
-
-    let sum = 0
-    useEffect(() => {
-        let dataVar = [...data]
-        for(let i=0; i<6; i++){
-            sum += dataVar[i].value
-        }
-        setCountLeft(sum)
-    }, [playSignal])
-
+const TotalLeft = ({ countLeft }) =>  {
 
     return (
         <li className='row'>
