@@ -4,8 +4,23 @@
 }
 
 .diceDivs > div {
-    width: 30px;
-    height: 30px;
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
     margin: 10px;
-    background-color: pink;
+    border-radius: 5%;
+    background-color: rgb(245, 205, 146);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    font-size: 1.8em;
+    pointer-events: none;
+}
+
+.selected {
+    border: 5px solid rgb(194, 120, 9);
 }

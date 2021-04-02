@@ -16,8 +16,9 @@ const LgStraight = ({ data, setData, dice, freezeRow }) =>  {
         if((numbers.includes(1) && numbers.includes(2) && numbers.includes(3) && numbers.includes(4)) && numbers.includes(5) ||
            (numbers.includes(2) && numbers.includes(3) && numbers.includes(4) && numbers.includes(5)) && numbers.includes(6) ) {
                 dataVar[10].value = 40;
-           } 
-           setData(dataVar)
+        } else  dataVar[10].value = 0;
+        
+        setData(dataVar)
     }, [dice])
 
 

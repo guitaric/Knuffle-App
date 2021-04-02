@@ -7,13 +7,13 @@ const FullHouse = ({data, setData, dice, freezeRow}) =>  {
         if(numbers.length){
             numbers = numbers.sort()
             let uniqueValues  = [... new Set(numbers)];
+            let dataVar = [...data];
             if(uniqueValues.length === 2){
                 if(uniqueValues[1] !== uniqueValues[3]) {
-                    let dataVar = [...data];
                     dataVar[8].value = 25;
-                    setData(dataVar)
-                }
-            }
+                } else dataVar[8].value = 0;
+            } else dataVar[8].value = 0;
+            setData(dataVar)
         }
     }, [dice])
 

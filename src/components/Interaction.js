@@ -48,38 +48,56 @@ const Interaction = ({
             default: divIndex = -1; 
         }
 
-        if(e.target.style.backgroundColor === 'black'){
-            e.target.style.backgroundColor = '';
-            let temp = [...dice]
-            temp[divIndex].selected = false;
-            setDice(temp);
-
-        } else {
-            e.target.style.backgroundColor = 'black';
-            let temp = [...dice]
-            temp[divIndex].selected = true;
-            setDice(temp);
+        if(e.target.nodeName === "DIV") {
+            if(e.target.classList.contains('selected')){
+                e.target.classList.remove('selected');
+                let temp = [...dice]
+                temp[divIndex].selected = false;
+                setDice(temp);
+    
+            } else {
+                e.target.classList.add('selected');
+                let temp = [...dice]
+                temp[divIndex].selected = true;
+                setDice(temp);
+            }
         }
+
+        // if(e.target.style.backgroundColor === 'black'){
+        //     e.target.style.backgroundColor = '';
+        //     let temp = [...dice]
+        //     temp[divIndex].selected = false;
+        //     setDice(temp);
+
+        // } else {
+        //     e.target.style.backgroundColor = 'black';
+        //     let temp = [...dice]
+        //     temp[divIndex].selected = true;
+        //     setDice(temp);
+        // }
+
+        
     }
 
     let diceVar;
     if(numberRolls < 3) {
         diceVar = 
         <div className='diceDivs'>
-            <div id='firstDice' onClick={ freezeDice }>{dice[0].number}</div>
-            <div id='secondDice' onClick={ freezeDice }>{dice[1].number}</div>
-            <div id='thirdDice' onClick={ freezeDice }>{dice[2].number}</div>
-            <div id='fourthDice' onClick={ freezeDice }>{dice[3].number}</div>
-            <div id='fifthDice' onClick={ freezeDice }>{dice[4].number}</div>
+            <div id='firstDice' onClick={ freezeDice }><span>{dice[0].number}</span></div>
+            <div id='secondDice' onClick={ freezeDice }><span>{dice[1].number}</span></div>
+            <div id='thirdDice' onClick={ freezeDice }><span>{dice[2].number}</span></div>
+            <div id='fourthDice' onClick={ freezeDice }><span>{dice[3].number}</span></div>
+            <div id='fifthDice' onClick={ freezeDice }><span>{dice[4].number}</span></div>
         </div>
     }
 
 
     return (
         <li className='buttonrow'>
-            <button onClick={ rollDice }>{numberRolls} left</button>
+            <button onClick={ rollDice }>{numberRolls} rolls left</button>
             <button className=
-                        { `${data.some(item => item.frozen === false && item.checked === true) ? '' : 'grey' }` } 
+                    { `${data.some(item => item.frozen === false && item.checked === true) 
+                                   ? '' : 'grey' }` } 
                     onClick={ play }> Play </button>
             <br/>
             <div>{diceVar}</div>

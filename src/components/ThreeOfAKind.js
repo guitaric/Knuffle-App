@@ -6,17 +6,20 @@ const ThreeOfAKind = ({dice, data, setData, freezeRow}) =>  {
         let numbers = dice.map(item => item.number)
         if(numbers.length){
             numbers = numbers.sort()
+            console.log(numbers, "numbers")
             let uniqueValues  = [...new Set(numbers)];
+            console.log(uniqueValues, "uniqueValue")
+            let dataVar = [...data];
+
             if(uniqueValues.length <= 3) {
                 if(numbers[0] === numbers[2] || 
                    numbers[1] === numbers[3] || 
                    numbers[2] === numbers[4]) {
-                    let dataVar = [...data];
                     let sum = numbers.reduce((acc, elem) => acc += elem, 0);
                     dataVar[6].value = sum;
-                    setData(dataVar)
-                }
-            }
+                } else dataVar[6].value = 0;
+            } else dataVar[6].value = 0;
+            setData(dataVar)
         }
     }, [dice])
 

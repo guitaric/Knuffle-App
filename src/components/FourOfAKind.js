@@ -7,14 +7,14 @@ const FourOfAKind = ({dice, data, setData, freezeRow}) =>  {
         if(numbers.length){
             numbers = numbers.sort()
             let uniqueValues  = [... new Set(numbers)];
+            let dataVar = [...data];
             if(uniqueValues.length <= 2) {
-                if(uniqueValues[0] !== uniqueValues[uniqueValues.length-1]) {
-                    let dataVar = [...data];
+                if(numbers[0] !== numbers[numbers.length-1]) {
                     let sum = numbers.reduce((acc, elem) => acc += elem, 0);
                     dataVar[7].value = sum;
-                    setData(dataVar)
-                }
-            }
+                } else dataVar[7].value = 0;
+            } else dataVar[7].value = 0;
+            setData(dataVar)
         }
     }, [dice])
 

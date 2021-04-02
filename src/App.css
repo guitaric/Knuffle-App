@@ -10,15 +10,11 @@
 
 .App {
   color: var(--blue);
-  margin: 2% 5% ;
+  margin: 1% 5% ;
 }
 
 
 .header {
-  margin-left: 5%;
-  margin-bottom: 50px;
-}
+  margin-left: 10px;
+  }
 
-/* li > div:nth-child(3) {
-  background-color: pink;
-} */

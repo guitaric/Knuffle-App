@@ -17,8 +17,9 @@ const SmStraight = ({ data, setData, dice, freezeRow }) =>  {
            (numbers.includes(2) && numbers.includes(3) && numbers.includes(4) && numbers.includes(5)) || 
            (numbers.includes(3) && numbers.includes(4) && numbers.includes(5) && numbers.includes(6))) {
                 dataVar[9].value = 30;
-           } 
-           setData(dataVar)
+        } else  dataVar[9].value = 0;
+        
+        setData(dataVar)
     }, [dice])
 
 

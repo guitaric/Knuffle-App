@@ -12,17 +12,19 @@ ul {
 
 li {
     border: solid 2px var(--blue) ;
-    padding: 20px 10px ;
+    margin: 10px;
+    padding: 10px 10px ;
     font-size: 20px;
 
     list-style-type: none;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 li.buttonrow {
     box-sizing: border-box;
-    height: 142px;
+    height: 150px;
 }
 
 
@@ -34,6 +36,16 @@ li.row > div:nth-child(2) {
 }
 li.row > div:nth-child(3) {
     flex: 1;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 5%;
+    font-size: 1.8em;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button {
@@ -49,12 +61,6 @@ button.grey {
     background-color: grey;
 }
 
-.dice {
-    width: 50px;
-    height: 50px;  
-    margin: 20px;
-    background-color:blanchedalmond;
-}
 
 .checked {
     background-color: yellow;
