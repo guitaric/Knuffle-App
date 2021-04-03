@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Knuffle-App/static/css/main.b36c7553.chunk.css",
-    "main.js": "/Knuffle-App/static/js/main.078f46ac.chunk.js",
-    "main.js.map": "/Knuffle-App/static/js/main.078f46ac.chunk.js.map",
+    "main.js": "/Knuffle-App/static/js/main.fdd5ef5d.chunk.js",
+    "main.js.map": "/Knuffle-App/static/js/main.fdd5ef5d.chunk.js.map",
     "runtime-main.js": "/Knuffle-App/static/js/runtime-main.58f79ffc.js",
     "runtime-main.js.map": "/Knuffle-App/static/js/runtime-main.58f79ffc.js.map",
     "static/js/2.2def5feb.chunk.js": "/Knuffle-App/static/js/2.2def5feb.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.58f79ffc.js",
     "static/js/2.2def5feb.chunk.js",
     "static/css/main.b36c7553.chunk.css",
-    "static/js/main.078f46ac.chunk.js"
+    "static/js/main.fdd5ef5d.chunk.js"
   ]
 }
